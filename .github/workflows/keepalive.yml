@@ -1,0 +1,32 @@
+
+name: KeepAliveE5
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 00:00 執行一次
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run KeepAlive script
+        env:
+          USER: ${{ secrets.USER }}
+          PASSWD: ${{ secrets.PASSWD }}
+          PAT: ${{ secrets.PAT }}
+        run: |
+          python task.py
