@@ -1,0 +1,7 @@
+{
+    "username": "handyc@handyc.onmicrosoft.com",
+    "refresh_token": "your_refresh_token_here",
+    "client_id": "eae8d5d7-9b45-4fd2-b9b4-647adafed43a",
+    "client_secret": "t08150815",
+    "redirect_uri": "https://login.microsoftonline.com/common/oauth2/nativeclient"
+}
